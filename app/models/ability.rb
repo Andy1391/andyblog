@@ -7,6 +7,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     can :manage, :all if user.role == "admin"
     can :update, :posts if user.role == "moderator"
+    
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
