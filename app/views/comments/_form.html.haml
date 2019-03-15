@@ -1,0 +1,14 @@
+= form_with(model: comment, url: post_comments_path , :method => :PUTCH) do |form|
+  - if comment.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(comment.errors.count, "error")
+        prohibited this comment from being saved:
+      %ul
+        - comment.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :text
+    = form.text_area :comment_text
+  .actions
+    = form.submit

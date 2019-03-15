@@ -1,10 +1,15 @@
 body {
-  background-color: #fff;
+  background-image: url(http://getwallpapers.com/wallpaper/full/b/2/3/668614.jpg);
   color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+#current_user {
+  color: yellow;
+  font-size: 15px;
 }
 
 p, ol, ul, td {
@@ -38,6 +43,7 @@ th {
 
 td {
   padding: 0 5px 7px;
+  border: 4px double black;
 }
 
 div {

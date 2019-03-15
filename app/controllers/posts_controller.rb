@@ -1,13 +1,15 @@
 class PostsController < ApplicationController
-  # before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  load_and_authorize_resource
+  before_action :set_user_name 
+  # load_and_authorize_resource
 
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
+    @comments = Comment.all  
   end
 
   # GET /posts/1
@@ -65,9 +67,12 @@ class PostsController < ApplicationController
     end
   end
 
+    def comment_list 
+      @comments = Comment.all
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    
     def set_post
       @post = Post.find(params[:id])
       authorize! :show, @post
