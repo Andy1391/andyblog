@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params) 
     @comment.post_id = params[:post_id]
-    @comment.name = current_user.name
+    # @comment.name = current_user.name
     puts params.inspect
     respond_to do |format|
       if @comment.save
