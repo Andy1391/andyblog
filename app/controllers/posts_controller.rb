@@ -9,7 +9,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @comments = Comment.all  
+    @comments = Comment.all 
+    @search = Post.search(params[:q]) 
+    @posts = @search.result
   end
 
   # GET /posts/1
