@@ -1,4 +1,4 @@
-= form_with(model: comment, url: post_comments_path , :method => :PUTCH) do |form|
+= form_with(model: comment, url: post_comments_path, :controller => comment , :action => :update , :method => :PUTCH) do |form|
   - if comment.errors.any?
     #error_explanation
       %h2
@@ -12,3 +12,7 @@
     = form.text_area :comment_text
   .actions
     = form.submit
+
+
+
+

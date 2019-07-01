@@ -8,4 +8,13 @@ class User < ApplicationRecord
 
   # validates :name, presence: true 
 
+  after_create :ensure_login_has_a_value
+
+  private
+    def ensure_login_has_a_value
+      if current_user.name.nil?
+        self.user.name = user.email
+      end
+    end
+
 end
